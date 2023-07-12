@@ -5,22 +5,51 @@ import AddUser from "./Components/AddUser";
 
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            users:[
+                {
+                    id:1,
+                    firstname:'Kapibara',
+                    lastname:'Mehmetov',
+                    bio:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum cupiditate nemo officia vel. Eveniet, illo, odit. Amet asperiores culpa distinctio dolores minus, non quasi quibusdam quos saepe temporibus unde?',
+                    age:20,
+                    isHappy:true
+                },
+                {
+                    id:2,
+                    firstname:'Chert',
+                    lastname:'Nefor',
+                    bio:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum cupiditate nemo officia vel. Eveniet, illo, odit. Amet asperiores culpa distinctio dolores minus, non quasi quibusdam quos saepe temporibus unde?',
+                    age:99,
+                    isHappy:false
+                }
 
+            ]
+
+        }
+        this.addUser=this.addUser.bind(this)
+    }
 
     render() {
         return (
             <div >
                 <Header title="Список пользователей"/>
                 <main>
-                    <Users />
+                    <Users users={this.state.users}/>
                 </main>
                 <aside>
-                    <AddUser/>
+                    <AddUser onAdd={this.addUser}/>
                 </aside>
             </div>
         )
     }
 
+    addUser(user){
+        const id=this.state.users.length +1
+        this.setState({users:[...this.state.users, {id,...user}]})
+    }
 
 }
 
