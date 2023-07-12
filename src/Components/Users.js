@@ -3,31 +3,37 @@ import React from "react";
 
 class Users extends React.Component {
 
-    users=[
-        {
-            id:1,
-            firstname:'Kapibara',
-            lastname:'Mehmetov',
-            bio:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum cupiditate nemo officia vel. Eveniet, illo, odit. Amet asperiores culpa distinctio dolores minus, non quasi quibusdam quos saepe temporibus unde?',
-            age:20,
-            isHappy:true
-        },
-        {
-            id:2,
-            firstname:'Chert',
-            lastname:'Nefor',
-            bio:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum cupiditate nemo officia vel. Eveniet, illo, odit. Amet asperiores culpa distinctio dolores minus, non quasi quibusdam quos saepe temporibus unde?',
-            age:99,
-            isHappy:false
-        }
+    constructor(props) {
+        super(props);
+        this.state={
+            users:[
+                {
+                    id:1,
+                    firstname:'Kapibara',
+                    lastname:'Mehmetov',
+                    bio:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum cupiditate nemo officia vel. Eveniet, illo, odit. Amet asperiores culpa distinctio dolores minus, non quasi quibusdam quos saepe temporibus unde?',
+                    age:20,
+                    isHappy:true
+                },
+                {
+                    id:2,
+                    firstname:'Chert',
+                    lastname:'Nefor',
+                    bio:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum cupiditate nemo officia vel. Eveniet, illo, odit. Amet asperiores culpa distinctio dolores minus, non quasi quibusdam quos saepe temporibus unde?',
+                    age:99,
+                    isHappy:false
+                }
 
-    ]
+            ]
+        }
+    }
     render() {
-        if (this.users.length>0)
+        if (this.state.users.length>0)
             return (<div>
-                {this.users.map((el)=>(<div className="user" key={el.id}>
+                {this.state.users.map((el)=>(<div className="user" key={el.id}>
                     <h3>{el.firstname} {el.lastname}</h3>
                     <p>{el.bio}</p>
+                    <b>{el.isHappy ? 'Счастлив': 'Он черт, какой счастлив'}</b>
                 </div>))}
             </div>)
         else
