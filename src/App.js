@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Components/Header";
+import Users from "./Components/Users";
 
 
 class App extends React.Component {
@@ -9,7 +10,10 @@ class App extends React.Component {
         return (
             <div >
                 <Header title="Список пользователей"/>
-
+                <main>
+                    <Users />
+                </main>
+                <aside></aside>
             </div>
         )
     }

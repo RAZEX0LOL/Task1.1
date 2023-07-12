@@ -25,7 +25,7 @@ class Users extends React.Component {
     render() {
 
         return (<div>
-            {this.users.map((el)=>(<div>
+            {this.users.map((el)=>(<div className={"user"}>
                 <h3>{el.firstname} {el.lastname}</h3>
                 <p>{el.bio}</p>
             </div>))}
